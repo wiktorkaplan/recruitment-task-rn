@@ -3,8 +3,11 @@ import { useFonts } from "expo-font";
 import AppLoading from "expo-app-loading";
 import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "styled-components/native";
+import { QueryClient, QueryClientProvider } from "react-query";
 import { primaryTheme } from "./styles/theme";
 import TabNavigator from "./navigation/TabNavigator";
+
+const queryClient = new QueryClient();
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,7 +20,9 @@ export default function App() {
     return (
       <ThemeProvider theme={primaryTheme}>
         <NavigationContainer>
-          <TabNavigator />
+          <QueryClientProvider client={queryClient}>
+            <TabNavigator />
+          </QueryClientProvider>
         </NavigationContainer>
       </ThemeProvider>
     );

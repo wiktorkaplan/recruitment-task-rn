@@ -2,6 +2,7 @@ import { DefaultTheme } from "styled-components/native";
 
 declare module "styled-components" {
   export interface DefaultTheme {
+    background: { main: string; white: string };
     text: {
       title: string;
       gray: string;
@@ -24,6 +25,10 @@ declare module "styled-components" {
 }
 
 export const primaryTheme: DefaultTheme = {
+  background: {
+    main: "#F4F6F9",
+    white: "#fff",
+  },
   text: { title: "#001524", gray: "#A0ABB2" },
   fontFamily: {
     bold: "Roboto-Bold",

@@ -4,7 +4,7 @@ export type AlbumsStackProps = {
 
 export type NewsStackProps = {
   NewsList: undefined;
-  NewsDetails: { newsId: number };
+  NewsDetails: { post: object };
 };
 
 export type TabContainerProps = {

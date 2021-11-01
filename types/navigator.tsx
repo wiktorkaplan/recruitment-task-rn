@@ -1,3 +1,4 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { newsItemProps } from "./news";
 
 export type AlbumsStackProps = {
@@ -13,3 +14,8 @@ export type TabContainerProps = {
   label?: string;
   focused?: boolean;
 };
+
+export type newsListProps = NativeStackScreenProps<
+  NewsStackProps,
+  "NewsDetails"
+>;

@@ -5,21 +5,12 @@ import * as yup from "yup";
 import { ErrorLabel, SuccessLabel, InfoLabel } from "./AddNewComment.styles";
 import { addComment } from "../../../api";
 import { TextInputPrimary, ButtonPrimary } from "../../atoms";
+import { addCommentProps } from "../../../types/news";
 
 type Props = {
   id: number;
 };
 
-type addCommentProps = {
-  postId: number;
-  comment: {
-    userId: number;
-    name: string;
-    email: string;
-    postId: number;
-    body: string;
-  };
-};
 const mockUser = {
   userId: 1,
   name: "Wiktor Kaplan",
@@ -28,7 +19,7 @@ const mockUser = {
 
 const AddNewComment: React.FC<Props> = ({ id }) => {
   const { mutate, isLoading, isError, isSuccess } = useMutation(
-    ({ postId, comment }: addCommentProps) => addComment(postId, comment)
+    ({ postId, comment }: addCommentProps) => addComment({ postId, comment })
   );
   const handleOnSubmit = (comment: string) => {
     mutate({
@@ -52,16 +43,19 @@ const AddNewComment: React.FC<Props> = ({ id }) => {
           .max(600, "Too Long")
           .required("To send, enter a comment"),
       })}
-      onSubmit={(values) => handleOnSubmit(values.comment)}
+      onSubmit={(values, { resetForm }) => {
+        handleOnSubmit(values.comment);
+        resetForm();
+      }}
     >
       {({ errors, touched, values, handleSubmit, handleChange }) => (
         <>
           <TextInputPrimary
-            value={values.comment}
+            value={values.comment || ""}
             placeholder="Here you can add your comment..."
             onChange={handleChange("comment")}
           />
-          {touched.comment && Boolean(errors.comment) && (
+          {touched.comment && errors.comment && (
             <ErrorLabel>{errors.comment}</ErrorLabel>
           )}
 

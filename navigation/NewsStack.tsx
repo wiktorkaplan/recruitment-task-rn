@@ -2,11 +2,13 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NewsList, NewsDetails } from "../pages";
 import styles from "../styles/navigator";
-import { NewsStackProps } from "../types/navigator";
+import { NewsStackProps, newsListProps } from "../types/navigator";
+import { BackButton } from "./NewsStack.styles";
+import { ArrowLeft } from "../assets/vectors";
 
 const Stack = createStackNavigator<NewsStackProps>();
 
-const NewsStack: React.FC = () => {
+const NewsStack: React.FC<newsListProps> = ({ navigation }) => {
   const { Navigator, Screen } = Stack;
 
   return (
@@ -35,13 +37,11 @@ const NewsStack: React.FC = () => {
         component={NewsDetails}
         options={{
           title: "News details",
-          //   headerLeft: () => (
-          //     <Button
-          //       onPress={() => alert("This is a button!")}
-          //       title="Info"
-          //       color="#fff"
-          //     />
-          //   ),
+          headerLeft: () => (
+            <BackButton onPress={() => navigation.goBack()}>
+              <ArrowLeft />
+            </BackButton>
+          ),
         }}
       />
     </Navigator>

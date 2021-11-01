@@ -1,3 +1,5 @@
+import { ChangeEvent } from "react";
+
 export type MainViewProps = {
   scrollable: boolean;
 };
@@ -11,6 +13,6 @@ export type ButtonProps = {
 export type TextInputProps = {
   placeholder?: string;
   additionalStyles?: object;
-  onChange?: () => void;
+  onChange?: (e: string | ChangeEvent<any>) => void;
   value?: string;
 };

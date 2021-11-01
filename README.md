@@ -11,7 +11,7 @@ A simple application developed in React Native technology using an external API 
 - Run metro bundler by expo cli ` expo start `
 - Download the Expo Go app from the Play Store or App Store and scan the QR code
 
-## Tech stack
+## Tech stack:
 - React Native
 - Expo
 - Styled-components

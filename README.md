@@ -25,6 +25,6 @@ A simple application developed in React Native technology using an external API 
 
 ## Notes:
 - Due to lack of testing capabilities, the app was only tested on an Android device.
-- The font used in the project is paid, I used a similar free replacement.
+- The font used in the Figma project is paid, I used a similar free replacement.
 - According to my CV I have no experience in typescript. I think if I had more time to learn the typescript patterns the project could be better.
 - For query and state I used react-query because it is faster to write. It is possible to easily rewrite to e.g. redux toolkit.

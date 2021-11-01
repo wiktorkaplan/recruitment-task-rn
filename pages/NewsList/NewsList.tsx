@@ -1,24 +1,17 @@
 import React from "react";
-import { ListRenderItem, FlatList, Text } from "react-native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { usePosts } from "../../hooks";
-import { NewsStackProps } from "../../types/navigator";
+import { ListRenderItem, FlatList, Text, LogBox } from "react-native";
+import { useQuery } from "react-query";
+import { fetchPosts } from "../../api";
+import { newsListProps, newsItemProps } from "../../types/news";
 import { MainView } from "../../components/templates";
 import { NewsListElement } from "../../components/molecules";
 
-type Props = NativeStackScreenProps<NewsStackProps, "NewsList">;
+LogBox.ignoreLogs(["Setting a timer"]);
 
-type renderItemProps = {
-  userId: number;
-  title: string;
-  body: string;
-  onPress: () => void;
-  id: number;
-};
+const NewsList: React.FC<newsListProps> = ({ navigation }) => {
+  const { data, isLoading, isSuccess } = useQuery("posts", fetchPosts);
 
-const NewsList: React.FC<Props> = ({ navigation }) => {
-  const { data, isLoading, isSuccess } = usePosts();
-  const renderItem: ListRenderItem<renderItemProps> = ({ item }) => (
+  const renderItem: ListRenderItem<newsItemProps> = ({ item }) => (
     <NewsListElement
       title={item.title}
       description={item.body}

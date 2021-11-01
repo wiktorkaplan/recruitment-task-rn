@@ -1,12 +1,8 @@
 import React from "react";
 import { Container, ScrollWrapper, Wrapper } from "./MainView.styles";
+import { mainViewProps } from "../../../types/news";
 
-type Props = {
-  scrollable?: boolean;
-  additionalStyles?: object;
-};
-
-const MainView: React.FC<Props> = ({
+const MainView: React.FC<mainViewProps> = ({
   children,
   scrollable = false,
   additionalStyles,

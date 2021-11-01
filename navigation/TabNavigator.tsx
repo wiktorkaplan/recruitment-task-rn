@@ -48,6 +48,7 @@ const TabNavigator = () => {
         },
         headerShown: false,
         tabBarShowLabel: false,
+        tabBarHideOnKeyboard: true,
         tabBarStyle: { height: 56 },
       })}
     >

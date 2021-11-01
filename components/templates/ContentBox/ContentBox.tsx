@@ -1,11 +1,11 @@
 import React from "react";
 import { Container } from "./ContentBox.styles";
+import { additionalStyleProps } from "../../../types/news";
 
-type Props = {
-  additionalStyles?: object;
-};
-
-const ContentBox: React.FC<Props> = ({ children, additionalStyles }) => (
+const ContentBox: React.FC<additionalStyleProps> = ({
+  children,
+  additionalStyles,
+}) => (
   <Container
     style={{
       shadowColor: "#F0F2F5",

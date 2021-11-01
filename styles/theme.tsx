@@ -2,10 +2,16 @@ import { DefaultTheme } from "styled-components/native";
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    background: { main: string; white: string };
+    background: { main: string; white: string; blue: string };
     text: {
       title: string;
       gray: string;
+      darkGray: string;
+      paragraph: string;
+      white: string;
+      error: string;
+      success: string;
+      info: string;
     };
     fontFamily: {
       bold: string;
@@ -28,8 +34,18 @@ export const primaryTheme: DefaultTheme = {
   background: {
     main: "#F4F6F9",
     white: "#fff",
+    blue: "#466BC9",
   },
-  text: { title: "#001524", gray: "#A0ABB2" },
+  text: {
+    title: "#001524",
+    gray: "#A0ABB2",
+    darkGray: "#586976",
+    paragraph: "#182F40",
+    white: "#fff",
+    error: "#ff3535",
+    success: "#00b43c",
+    info: "#3543ff",
+  },
   fontFamily: {
     bold: "Roboto-Bold",
     medium: "Roboto-Medium",

@@ -5,16 +5,15 @@ import {
   Description,
   ButtonArrow,
 } from "./NewsListElement.styles";
+import { newsListElementProps } from "../../../types/news";
 import { ContentBox } from "../../templates";
 import { ArrowRight } from "../../../assets/vectors";
 
-type Props = {
-  title: string;
-  description: string;
-  onPress?: any;
-};
-
-const NewsListElement: React.FC<Props> = ({ title, description, onPress }) => (
+const NewsListElement: React.FC<newsListElementProps> = ({
+  title,
+  description,
+  onPress,
+}) => (
   <ContentBox
     additionalStyles={{
       flexDirection: "row",

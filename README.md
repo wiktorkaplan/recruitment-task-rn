@@ -12,8 +12,8 @@ A simple application developed in React Native technology using an external API 
 - Download the Expo Go app from the Play Store or App Store and scan the QR code
 
 ## Tech stack
-- Expo
 - React Native
+- Expo
 - Styled-components
 - React-query
 - Axios
